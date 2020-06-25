@@ -112,6 +112,6 @@ const GamePlay = (() => {
   };
 
   return {
-    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore,
+    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore, getPlayers,
   };
 })();
