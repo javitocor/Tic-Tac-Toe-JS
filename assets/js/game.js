@@ -1,15 +1,18 @@
 const GameBoard = (() => {
-  let boardArray = Array(9);
-
-  const getBoard = function () {
+  let boardArray = ['', '', '', '', '', '', '', '', ''];
+  /* let boardArray = ['O','O','X',
+                    'X','X','O',
+                    'O','X', undefined];
+ */
+  const getBoard = function getBoard() {
     return boardArray;
   };
 
-  const updateBoard = function (index, sign) {
+  const updateBoard = function updateBoard(index, sign) {
     boardArray[index] = sign;
   };
 
-  const clearBoard = function () {
+  const clearBoard = function clearBoard() {
     boardArray = Array(9);
   };
 
@@ -31,30 +34,27 @@ console.log(GameBoard.get());
 
 
 const GamePlay = (() => {
-  const gameStatus = false;
-  let playerOne;
-  let playerTwo;
-  const playerOneScore = 0;
-  const playerTwoScore = 0;
+  const playerOne = 'Javier';
+  const playerTwo = 'Kubilay';
+  let playerOneScore = 0;
+  let playerTwoScore = 0;
   let turn = 0;
+  let playerOneWin = false;
+  let playerTwoWin = false;
 
   /* const getPlayers = function () {
-	}; */
+}; */
 
-  const playerTurn = function () {
+  const playerTurn = function playerTurn() {
     if (turn % 2 === 0) {
-      turn++;
-      return playerOne;
+      turn += 1;
+      return 'X';
     }
-    turn++;
-    return playerTwo;
+    turn += 1;
+    return 'O';
   };
 
-  const isTie = function () {
-
-  };
-
-  const isWin = function () {
+  const isWin = function isWin() {
     const board = GameBoard.get();
     const line1 = [board[0], board[1], board[2]];
     const line2 = [board[3], board[4], board[5]];
@@ -67,21 +67,60 @@ const GamePlay = (() => {
 
     const possibilities = [line1, line2, line3, line4, line5, line6, diagonal1, diagonal2];
 
-    for (let i = 0; i < possibilities.length; i++) {
-      if (possibilities[i].every(value => 'X')) {
-        console.log('player1 wins');
-        break;
-      } else if (possibilities[i].every(value => 'O')) {
-        console.log('player1 wins');
-        break;
+    for (let i = 0; i < possibilities.length; i += 1) {
+      if (possibilities[i].every(value => value === 'X')) {
+        playerOneScore += 1;
+        playerOneWin = true;
+        return true;
+      }
+      if (possibilities[i].every(value => value === 'O')) {
+        playerTwoScore += 1;
+        playerTwoWin = true;
+        return true;
       }
     }
-  };
-
-  const isMovable = function () {
-
+    return false;
   };
 
 
-	 return {};
+  const isTie = function isTie() {
+    const board = GameBoard.get();
+    if (!isWin() && board.every(value => value !== '')) {
+      return true;
+    }
+    return false;
+  };
+
+  const whoWon = function whoWon() {
+    if (isWin()) {
+      return playerOneWin ? playerOne : playerTwo;
+    }
+    return false;
+  };
+
+  const isMovable = function isMovable(index) {
+    const board = GameBoard.get();
+    if (board[index] === '') {
+      return true;
+    }
+    return false;
+  };
+
+  const move = function move(index) {
+    if (isMovable(index)) {
+      GameBoard.update(index, playerTurn());
+      return true;
+    }
+    return false;
+  };
+
+  return {
+    isWin, isTie, whoWon, move,
+  };
 })();
+
+console.log('Is a win?:', GamePlay.isWin());
+if (GamePlay.isWin()) {
+  console.log('The winner is:', GamePlay.whoWon());
+}
+console.log('Is a tie?:', GamePlay.isTie());
