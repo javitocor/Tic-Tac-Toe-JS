@@ -1,9 +1,6 @@
 const GameBoard = (() => {
   let boardArray = ['', '', '', '', '', '', '', '', ''];
-  /* let boardArray = ['O','O','X',
-                    'X','X','O',
-                    'O','X', undefined];
- */
+
   const getBoard = function getBoard() {
     return boardArray;
   };
@@ -13,7 +10,7 @@ const GameBoard = (() => {
   };
 
   const clearBoard = function clearBoard() {
-    boardArray = Array(9);
+    boardArray = ['', '', '', '', '', '', '', '', ''];
   };
 
   return {
@@ -22,36 +19,33 @@ const GameBoard = (() => {
     clear: clearBoard,
   };
 })();
-/*
-console.log(GameBoard.get());
-console.log(GameBoard.update(2));
-console.log(GameBoard.update(3));
-console.log(GameBoard.update(8));
-console.log(GameBoard.get());
-console.log(GameBoard.clear());
-console.log(GameBoard.get());
-*/
 
 
 const GamePlay = (() => {
-  const playerOne = 'Javier';
-  const playerTwo = 'Kubilay';
+  let gameStatus = false;
+  let playerOne;
+  let playerTwo;
   let playerOneScore = 0;
   let playerTwoScore = 0;
   let turn = 0;
   let playerOneWin = false;
   let playerTwoWin = false;
 
-  /* const getPlayers = function () {
-}; */
+  const getPlayers = function getPlayers() {
+    const name1 = document.getElementById('player1').value;
+    const name2 = document.getElementById('player2').value;
+
+    playerOne = Player(name1, 'X');
+    playerTwo = Player(name2, 'O');
+  };
 
   const playerTurn = function playerTurn() {
     if (turn % 2 === 0) {
       turn += 1;
-      return 'X';
+      return playerOne;
     }
     turn += 1;
-    return 'O';
+    return playerTwo;
   };
 
   const isWin = function isWin() {
@@ -71,11 +65,13 @@ const GamePlay = (() => {
       if (possibilities[i].every(value => value === 'X')) {
         playerOneScore += 1;
         playerOneWin = true;
+        gameStatus = false;
         return true;
       }
       if (possibilities[i].every(value => value === 'O')) {
         playerTwoScore += 1;
         playerTwoWin = true;
+        gameStatus = false;
         return true;
       }
     }
@@ -86,6 +82,7 @@ const GamePlay = (() => {
   const isTie = function isTie() {
     const board = GameBoard.get();
     if (!isWin() && board.every(value => value !== '')) {
+      gameStatus = false;
       return true;
     }
     return false;
@@ -115,12 +112,6 @@ const GamePlay = (() => {
   };
 
   return {
-    isWin, isTie, whoWon, move,
+    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore,
   };
 })();
-
-console.log('Is a win?:', GamePlay.isWin());
-if (GamePlay.isWin()) {
-  console.log('The winner is:', GamePlay.whoWon());
-}
-console.log('Is a tie?:', GamePlay.isTie());

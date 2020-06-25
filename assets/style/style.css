@@ -46,3 +46,41 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+#row1, #row2, #row3 {
+    display: flex;  
+    flex-direction:row;
+}
+
+#row1 {
+    order: 1;
+    
+}
+
+#row2 {
+    order: 2;
+}
+
+#row3 {
+    order: 3;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 6rem;
+    margin: .12rem;
+    border: 1px solid black;
+    background-color: #0077b3;
+    color: #cceeff;
+    font-size: 3rem;
+    box-shadow: 3px 3px 5px -3px rgba(0, 34, 51,0.75);
+}
+
+#info {
+	display: block;
+	flex-direction:row;
+}

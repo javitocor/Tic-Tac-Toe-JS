@@ -7,16 +7,84 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
   </head>
-  <body>
-    <!-- Board -->
-    <section></section>
-    <!-- Buttons -->
-    <section></section>
-    <!-- Players Display -->
-    <section></section>
-    <!-- Instruccions -->
-    <section></section>
-    <!-- Message display -->
-    <section></section>
+  <body class="text-center m-2">
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Tic Tac Toe</h1>
+          <!-- players info -->  
+        <section id="info" class="d-flex flex-column bg-warning w-25 m-auto">
+          <div id="message" class="font-weight-bold ">
+              
+          </div>
+        </section>
+        
+        <!-- scoreboard -->
+        <section id="score" class="d-flex flex-column w-50 m-auto">
+          <h3 class="badge badge-primary w-25 text-center p-2 m-auto">Score</h3>
+          <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th>PLAYER NAME</th>
+                  <th>GAMES WON</th>
+                </tr>
+              </thead>
+              <tbody id="points">
+                  <tr>
+                      <td id="play1name" class="text-center"></td>
+                      <td id="play1score" class="text-center"></td>
+                  </tr>
+                  <tr>
+                      <td id="play2name" class="text-center"></td>
+                      <td id="play2score" class="text-center"></td>
+                  </tr>             
+              </tbody>
+          </table>
+        </section>
+        <!-- board -->          
+        <section id="board" class="d-flex flex-column w-25 m-auto">
+          <div id="gameContainer">
+              <div id="row1">
+                  <div id="0" class="cell"></div>
+                  <div id="1" class="cell"></div>
+                  <div id="2" class="cell"></div>
+              </div>
+              <div id="row2">
+                  <div id="3" class="cell"></div>
+                  <div id="4" class="cell"></div>
+                  <div id="5" class="cell"></div>
+              </div>
+              <div id="row3">
+                  <div id="6" class="cell"></div>
+                  <div id="7" class="cell"></div>
+                  <div id="8" class="cell"></div>
+              </div>
+          </div>
+        </section>
+        <br>
+        <!-- buttons -->
+        <section id="game" class="d-flex flex-column w-25 m-auto">
+          <div id="form">
+              <form id="names">
+                  <label for="player1"><b>Player 1 Name</b></label><br>
+                  <input type="text" id="player1" placeholder="Enter Player1 Name" name="player1" required><br>
+
+                  <label for="player2"><b>Player 2 Name</b></label><br>
+                  <input type="text" id="player2" placeholder="Enter Player2 Name" name="player2" required><br><br>
+
+                  <input type="submit" class="btn btn-primary" id="submit" value="Add Names">
+              </form>            
+          </div>
+          <div class="m-auto d-flex flex-column justify-content-center">
+              <input type="submit" class="btn btn-primary" id="playAgain" value="Play Again"><br><br>
+              <input type="submit" class="btn btn-primary" id="reset" value="Reset"> 
+          </div>
+        </section>
+      </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="assets/js/players.js"></script>
+    <script type="text/javascript" src="assets/js/DOM.js"></script>
+    <script type="text/javascript" src="assets/js/game.js"></script>
   </body>
 </html>
