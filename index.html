@@ -65,26 +65,30 @@
         <!-- buttons -->
         <section id="game" class="d-flex flex-column w-25 m-auto">
           <div id="form">
-              <form id="names">
+              <form id="names" action="javascript:void(0);">
                   <label for="player1"><b>Player 1 Name</b></label><br>
                   <input type="text" id="player1" placeholder="Enter Player1 Name" name="player1" required><br>
 
                   <label for="player2"><b>Player 2 Name</b></label><br>
                   <input type="text" id="player2" placeholder="Enter Player2 Name" name="player2" required><br><br>
 
-                  <input type="submit" class="btn btn-primary" id="submit" value="Add Names">
+                  <input type="submit" class="btn btn-primary" id="submit" value="START">
               </form>            
           </div>
-          <div class="m-auto d-flex flex-column justify-content-center">
-              <input type="submit" class="btn btn-primary" id="playAgain" value="Play Again"><br><br>
+          <div id="form2" class="m-auto d-flex flex-column justify-content-center">
+            <div class="button-wrapper">
+              <form action="javascript:void(0);">
+            <input type="submit" class="btn btn-primary" id="playAgain" value="Play Again"><br><br>
               <input type="submit" class="btn btn-primary" id="reset" value="Reset"> 
+            </form>
+            </div>  
           </div>
         </section>
       </div>
       </div>
     </main>
+    <script type="text/javascript" src="assets/js/game.js"></script>
     <script type="text/javascript" src="assets/js/players.js"></script>
     <script type="text/javascript" src="assets/js/DOM.js"></script>
-    <script type="text/javascript" src="assets/js/game.js"></script>
   </body>
 </html>
