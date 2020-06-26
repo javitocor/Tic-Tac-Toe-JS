@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-var */
 const GameBoard = (() => {
   let boardArray = ['', '', '', '', '', '', '', '', ''];
 
@@ -39,7 +42,7 @@ const GamePlay = (() => {
     playerTwo = Player(name2, 'O');
   };
 
-  const playerTurn = function playerTurn() {
+  const changeTurn = function changeTurn() {
     if (turn % 2 === 0) {
       turn += 1;
       return playerOne;
@@ -53,7 +56,7 @@ const GamePlay = (() => {
       return playerOne;
     }
     return playerTwo;
-  }
+  };
 
   const isWin = function isWin() {
     const board = GameBoard.get();
@@ -112,13 +115,36 @@ const GamePlay = (() => {
 
   const move = function move(index) {
     if (isMovable(index)) {
-      GameBoard.update(index, playerTurn());
+      GameBoard.update(index, whosTurn().sign);
       return true;
     }
     return false;
   };
 
+  const endGame = function endGame() {
+    if (isWin()) {
+      return whoWon();
+    }
+    if (isTie()) {
+      return 'tie';
+    }
+    return false;
+  };
+
   return {
-    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore, getPlayers, whosTurn, playerTurn, isMovable,
+    changeTurn,
+    endGame,
+    isWin,
+    isTie,
+    whoWon,
+    move,
+    gameStatus,
+    playerOne,
+    playerTwo,
+    playerOneScore,
+    playerTwoScore,
+    getPlayers,
+    whosTurn,
+    isMovable,
   };
 })();
