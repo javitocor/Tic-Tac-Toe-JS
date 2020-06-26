@@ -37,9 +37,16 @@ const GamePlay = (() => {
   const getPlayers = function getPlayers() {
     const name1 = document.getElementById('player1').value || 'Player1';
     const name2 = document.getElementById('player2').value || 'Player2';
-
     playerOne = Player(name1, 'X');
     playerTwo = Player(name2, 'O');
+  };
+
+  const getPlayerOne = function getPlayerOne() {
+    return playerOne;
+  };
+
+  const getPlayerTwo = function getPlayerTwo() {
+    return playerTwo;
   };
 
   const changeTurn = function changeTurn() {
@@ -73,13 +80,11 @@ const GamePlay = (() => {
 
     for (let i = 0; i < possibilities.length; i += 1) {
       if (possibilities[i].every(value => value === 'X')) {
-        playerOneScore += 1;
         playerOneWin = true;
         gameStatus = false;
         return true;
       }
       if (possibilities[i].every(value => value === 'O')) {
-        playerTwoScore += 1;
         playerTwoWin = true;
         gameStatus = false;
         return true;
@@ -146,5 +151,7 @@ const GamePlay = (() => {
     getPlayers,
     whosTurn,
     isMovable,
+    getPlayerOne,
+    getPlayerTwo,
   };
 })();
