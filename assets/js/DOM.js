@@ -76,8 +76,6 @@ const GameDisplay = (() => {
     GameBoard.clear();
     cells.forEach(value => value.innerText = '');
     GamePlay.setTurn(0);
-    GamePlay.playerOneWin = false;
-    GamePlay.playerTwoWin = false;
     message.innerText = '';
     scoreBoard(GamePlay.getPlayerOne().name, GamePlay.getPlayerTwo().name);
     GamePlay.gameStatus = true;
@@ -86,12 +84,9 @@ const GameDisplay = (() => {
   const resetGame = function resetGame() {
     displayButtons('restart');
     GameBoard.clear();
-    GamePlay.gameStatus = false;
     GamePlay.playerOneScore = 0;
     GamePlay.playerTwoScore = 0;
     GamePlay.setTurn(0);
-    GamePlay.playerOneWin = false;
-    GamePlay.playerTwoWin = false;
     GamePlay.playerOne = ('Player1', 'X');
     GamePlay.playerTwo = ('Player2', 'O');
     cells.forEach(value => value.innerText = '');
