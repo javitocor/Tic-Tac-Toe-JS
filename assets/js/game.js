@@ -22,18 +22,18 @@ const GameBoard = (() => {
 
 
 const GamePlay = (() => {
-  let gameStatus = false;
-  let playerOne;
-  let playerTwo;
-  let playerOneScore = 0;
-  let playerTwoScore = 0;
+  var gameStatus = false;
+  var playerOne;
+  var playerTwo;
+  var playerOneScore = 0;
+  var playerTwoScore = 0;
   let turn = 0;
   let playerOneWin = false;
   let playerTwoWin = false;
 
   const getPlayers = function getPlayers() {
-    const name1 = document.getElementById('player1').value;
-    const name2 = document.getElementById('player2').value;
+    const name1 = document.getElementById('player1').value || 'Player1';
+    const name2 = document.getElementById('player2').value || 'Player2';
 
     playerOne = Player(name1, 'X');
     playerTwo = Player(name2, 'O');
@@ -47,6 +47,13 @@ const GamePlay = (() => {
     turn += 1;
     return playerTwo;
   };
+
+  const whosTurn = function whosTurn() {
+    if (turn % 2 === 0) {
+      return playerOne;
+    }
+    return playerTwo;
+  }
 
   const isWin = function isWin() {
     const board = GameBoard.get();
@@ -112,6 +119,6 @@ const GamePlay = (() => {
   };
 
   return {
-    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore, getPlayers,
+    isWin, isTie, whoWon, move, gameStatus, playerOne, playerTwo, playerOneScore, playerTwoScore, getPlayers, whosTurn, playerTurn, isMovable,
   };
 })();
