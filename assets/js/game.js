@@ -81,12 +81,10 @@ const GamePlay = (() => {
     for (let i = 0; i < possibilities.length; i += 1) {
       if (possibilities[i].every(value => value === 'X')) {
         playerOneWin = true;
-        gameStatus = false;
         return true;
       }
       if (possibilities[i].every(value => value === 'O')) {
         playerTwoWin = true;
-        gameStatus = false;
         return true;
       }
     }
@@ -97,7 +95,6 @@ const GamePlay = (() => {
   const isTie = function isTie() {
     const board = GameBoard.get();
     if (!isWin() && board.every(value => value !== '')) {
-      gameStatus = false;
       return true;
     }
     return false;

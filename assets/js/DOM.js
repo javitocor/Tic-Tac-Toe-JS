@@ -41,11 +41,13 @@ const GameDisplay = (() => {
     }
     if (GamePlay.endGame() === 'tie') {
       message.innerHTML = 'It\'s a tie.';
+      GamePlay.gameStatus = false;
       return;
     }
     GamePlay.endGame() === GamePlay.getPlayerOne() ? GamePlay.playerOneScore += 1 : GamePlay.playerTwoScore += 1;
     message.innerHTML = `${GamePlay.endGame().name} WIN!`;
     scoreBoard(GamePlay.getPlayerOne().name, GamePlay.getPlayerTwo().name);
+    GamePlay.gameStatus = false;
   };
 
   const getMark = function getMark(index) {
