@@ -75,7 +75,10 @@ const GameDisplay = (() => {
     displayButtons('start');
     GameBoard.clear();
     cells.forEach(value => value.innerText = '');
-    GamePlay.turn = 0;
+    GamePlay.setTurn(0);
+    GamePlay.playerOneWin = false;
+    GamePlay.playerTwoWin = false;
+    message.innerText = '';
     scoreBoard(GamePlay.getPlayerOne().name, GamePlay.getPlayerTwo().name);
     GamePlay.gameStatus = true;
   };
@@ -86,12 +89,14 @@ const GameDisplay = (() => {
     GamePlay.gameStatus = false;
     GamePlay.playerOneScore = 0;
     GamePlay.playerTwoScore = 0;
-    GamePlay.turn = 0;
+    GamePlay.setTurn(0);
+    GamePlay.playerOneWin = false;
+    GamePlay.playerTwoWin = false;
     GamePlay.playerOne = ('Player1', 'X');
     GamePlay.playerTwo = ('Player2', 'O');
     cells.forEach(value => value.innerText = '');
     message.innerText = '';
-    scoreBoard();
+    scoreBoard(GamePlay.playerOne.name, GamePlay.playerTwo.name);
     document.getElementById('names').reset();
   };
 
@@ -104,6 +109,6 @@ const GameDisplay = (() => {
   );
 
   return {
-    scoreBoard,
+
   };
 })();

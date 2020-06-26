@@ -30,7 +30,7 @@ const GamePlay = (() => {
   var playerTwo;
   var playerOneScore = 0;
   var playerTwoScore = 0;
-  let turn = 0;
+  var turn = 0;
   let playerOneWin = false;
   let playerTwoWin = false;
 
@@ -47,6 +47,11 @@ const GamePlay = (() => {
 
   const getPlayerTwo = function getPlayerTwo() {
     return playerTwo;
+  };
+
+  const setTurn = function setTurn(value) {
+    turn = value;
+    return turn;
   };
 
   const changeTurn = function changeTurn() {
@@ -81,10 +86,12 @@ const GamePlay = (() => {
     for (let i = 0; i < possibilities.length; i += 1) {
       if (possibilities[i].every(value => value === 'X')) {
         playerOneWin = true;
+        playerTwoWin = false;
         return true;
       }
       if (possibilities[i].every(value => value === 'O')) {
         playerTwoWin = true;
+        playerOneWin = false;
         return true;
       }
     }
@@ -134,12 +141,14 @@ const GamePlay = (() => {
   };
 
   return {
+    setTurn,
     changeTurn,
     endGame,
     isWin,
     isTie,
     whoWon,
     move,
+    turn,
     gameStatus,
     playerOne,
     playerTwo,
