@@ -21,9 +21,9 @@
 
 # Tic Tac Toe
 
-> 
+> You can play tictactoe in our website with only build Javascript. 
 
-![screenshot](./assets/images/library_ss.png)
+![screenshot](./assets/images/ttt.png)
 
 Additional description about the project and its features.
 
@@ -33,11 +33,10 @@ Additional description about the project and its features.
 - CSS
 - JAVASCRIPT
 - BOOTSTRAP
-- SASS
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://raw.githack.com/javitocor/Tic-Tac-Toe-JS/feature/index.html)
 
 # Instructions to Play
 
@@ -88,7 +87,7 @@ Additional description about the project and its features.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/kubilaycaglayan/library/issues).
+Feel free to check the [issues page](https://github.com/javitocor/Tic-Tac-Toe-JS/issues).
 
 ## Show your support
 
