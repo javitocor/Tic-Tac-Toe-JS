@@ -45,7 +45,7 @@ const GameDisplay = (() => {
       return;
     }
     GamePlay.endGame() === GamePlay.getPlayerOne() ? GamePlay.playerOneScore += 1 : GamePlay.playerTwoScore += 1;
-    message.innerHTML = `${GamePlay.endGame().name} WIN!`;
+    message.innerHTML = `${GamePlay.endGame().name} WIN! Congratulations...`;
     scoreBoard(GamePlay.getPlayerOne().name, GamePlay.getPlayerTwo().name);
     GamePlay.gameStatus = false;
   };
