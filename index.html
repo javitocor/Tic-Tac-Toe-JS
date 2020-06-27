@@ -2,10 +2,110 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
   </head>
-  <body>
-    
+  <body class="text-center m-2 bg-light">
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="bg-success w-25 text-center mx-auto my-3 p-3 rounded">Tic Tac Toe</h1>
+          <!-- players info -->  
+        <section id="info" class="d-flex flex-column bg-warning w-25 m-auto">
+          <div id="message" class="font-weight-bold">
+              
+          </div>
+        </section>
+      
+        <!-- board -->          
+        <section id="board" class="mx-auto my-2">
+          <div class="row">
+            <div class="col-4"> 
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th id="play1name"></th>
+                  </tr>
+                </thead>
+                <tbody id="points">
+                    <tr>
+                        <td id="play1score" class="text-center"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="col-4 text-center">
+              <div id="gameContainer" class="text-center">
+                <div id="row1" class="text-center">
+                    <div id="0" class="cell ml-auto"></div>
+                    <div id="1" class="cell"></div>
+                    <div id="2" class="cell mr-auto"></div>
+                </div>
+                <div id="row2" class="text-center">
+                    <div id="3" class="cell ml-auto"></div>
+                    <div id="4" class="cell"></div>
+                    <div id="5" class="cell mr-auto"></div>
+                </div>
+                <div id="row3" class="text-center">
+                    <div id="6" class="cell ml-auto"></div>
+                    <div id="7" class="cell"></div>
+                    <div id="8" class="cell mr-auto"></div>
+                </div>
+            </div>
+            </div>
+            <div class="col-4"> 
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th id="play2name"></th>
+                  </tr>
+                </thead>
+                <tbody id="points">
+                    <tr>
+                        <td id="play2score" class="text-center"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+          </div>
+
+
+        </section>
+        <br>
+        <!-- buttons -->
+        <section id="game" class="text-center">
+          <div id="form" class="m-auto">
+              <form id="names" action="javascript:void(0);">
+                <div class="d-flex justify-content-center" >
+                  <div class="mx-2">
+                    <label for="player1" class="my-1"><b>Player 1 Name</b></label><br>
+                    <input type="text" id="player1" placeholder="Enter Player1 Name" name="player1" required><br>
+                  </div>
+                  <div class="mx-2">
+                    <label for="player2" class="my-1"><b>Player 2 Name</b></label><br>
+                    <input type="text" id="player2" placeholder="Enter Player2 Name" name="player2" required><br><br>
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-primary" id="submit" value="START">
+              </form>            
+          </div>
+          <div id="form2" class="m-auto d-flex flex-column justify-content-center">
+            <div class="button-wrapper">
+              <form action="javascript:void(0);">
+            <input type="submit" class="btn btn-primary" id="playAgain" value="Play Again"><br><br>
+              <input type="submit" class="btn btn-primary" id="reset" value="Reset"> 
+            </form>
+            </div>  
+          </div>
+        </section>
+      </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="assets/js/game.js"></script>
+    <script type="text/javascript" src="assets/js/players.js"></script>
+    <script type="text/javascript" src="assets/js/DOM.js"></script>
   </body>
 </html>
