@@ -5,6 +5,7 @@
 /* eslint-disable no-unused-vars */
 import GameBoard from './gameboard';
 import GamePlay from './game';
+import '../style/style.css';
 
 const GameDisplay = (() => {
   const startButton = document.getElementById('submit');
