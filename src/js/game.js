@@ -1,28 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
-const GameBoard = (() => {
-  let boardArray = ['', '', '', '', '', '', '', '', ''];
-
-  const getBoard = function getBoard() {
-    return boardArray;
-  };
-
-  const updateBoard = function updateBoard(index, sign) {
-    boardArray[index] = sign;
-  };
-
-  const clearBoard = function clearBoard() {
-    boardArray = ['', '', '', '', '', '', '', '', ''];
-  };
-
-  return {
-    get: getBoard,
-    update: updateBoard,
-    clear: clearBoard,
-  };
-})();
-
+import Player from './players';
+import GameBoard from './gameboard';
 
 const GamePlay = (() => {
   var gameStatus = false;
@@ -161,3 +141,5 @@ const GamePlay = (() => {
     getPlayerTwo,
   };
 })();
+
+export { GamePlay as default };

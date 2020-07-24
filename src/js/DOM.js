@@ -3,6 +3,9 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import GameBoard from './gameboard';
+import GamePlay from './game';
+
 const GameDisplay = (() => {
   const startButton = document.getElementById('submit');
   const playButton = document.getElementById('playAgain');
@@ -107,3 +110,8 @@ const GameDisplay = (() => {
 
   };
 })();
+
+export {
+  GameDisplay as
+  default,
+};
