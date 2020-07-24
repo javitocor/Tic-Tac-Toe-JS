@@ -116,3 +116,5 @@ export {
   GameDisplay as
   default,
 };
+
+module.exports = GameDisplay;

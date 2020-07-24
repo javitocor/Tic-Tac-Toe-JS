@@ -28,5 +28,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.10.4"
   }
 }

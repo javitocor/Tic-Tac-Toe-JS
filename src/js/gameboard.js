@@ -21,3 +21,4 @@ const GameBoard = (() => {
 })();
 
 export { GameBoard as default };
+module.exports = GameBoard;
