@@ -1,4 +1,6 @@
-const GamePlay = require('../src/js/game');
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-unused-vars */
+import GamePlay from '../src/js/game';
 
 describe('GamePlay', () => {
   it('assigns the value whatever passed in and returns the same value', () => {
@@ -40,5 +42,34 @@ describe('GamePlay', () => {
     const isTie = jest.fn(() => true);
 
     expect(GamePlay.endGame(isWin, whoWon, isTie)).toMatch('tie');
+  });
+
+  it('returns true if user can move', () => {
+    const isMovable = jest.fn(() => true);
+    const index = 0;
+    expect(GamePlay.move(index)).toBeTruthy();
+  });
+
+  it('returns false if user can not move', () => {
+    const isMovable = jest.fn(() => false);
+    const index = 0;
+    expect(GamePlay.move(index)).toBeFalsy();
+  });
+
+  it('returns the player 1', () => {
+    GamePlay.getPlayers();
+    expect(GamePlay.getPlayerOne().name).toMatch('Player1');
+    expect(GamePlay.getPlayerOne().sign).toMatch('X');
+  });
+
+  it('returns the player 2', () => {
+    GamePlay.getPlayers();
+    expect(GamePlay.getPlayerTwo().name).toMatch('Player2');
+    expect(GamePlay.getPlayerTwo().sign).toMatch('O');
+  });
+
+  it('returns who is turn', () => {
+    GamePlay.getPlayers();
+    expect(GamePlay.whosTurn()).toMatchObject({ name: 'Player1', sign: 'X' });
   });
 });

@@ -1,4 +1,4 @@
-const GameBoard = require('../src/js/gameboard');
+import GameBoard from '../src/js/gameboard';
 
 describe('Gameboard', () => {
   it('returns an array with a length of 9', () => {

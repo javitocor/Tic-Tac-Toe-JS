@@ -4,4 +4,3 @@ function Player(name, sign) {
 }
 
 export { Player as default };
-module.exports = Player;

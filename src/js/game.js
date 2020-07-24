@@ -145,4 +145,3 @@ const GamePlay = (() => {
 })();
 
 export { GamePlay as default };
-module.exports = GamePlay;
