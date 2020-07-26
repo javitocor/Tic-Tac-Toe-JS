@@ -1,28 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-var */
-const GameBoard = (() => {
-  let boardArray = ['', '', '', '', '', '', '', '', ''];
-
-  const getBoard = function getBoard() {
-    return boardArray;
-  };
-
-  const updateBoard = function updateBoard(index, sign) {
-    boardArray[index] = sign;
-  };
-
-  const clearBoard = function clearBoard() {
-    boardArray = ['', '', '', '', '', '', '', '', ''];
-  };
-
-  return {
-    get: getBoard,
-    update: updateBoard,
-    clear: clearBoard,
-  };
-})();
-
+import Player from './players';
+import GameBoard from './gameboard';
 
 const GamePlay = (() => {
   var gameStatus = false;
@@ -35,8 +15,15 @@ const GamePlay = (() => {
   let playerTwoWin = false;
 
   const getPlayers = function getPlayers() {
-    const name1 = document.getElementById('player1').value || 'Player1';
-    const name2 = document.getElementById('player2').value || 'Player2';
+    let name1;
+    let name2;
+    try {
+      name1 = document.getElementById('player1').value || 'Player1';
+      name2 = document.getElementById('player2').value || 'Player2';
+    } catch (error) {
+      name1 = 'Player1';
+      name2 = 'Player2';
+    }
     playerOne = Player(name1, 'X');
     playerTwo = Player(name2, 'O');
   };
@@ -130,11 +117,11 @@ const GamePlay = (() => {
     return false;
   };
 
-  const endGame = function endGame() {
-    if (isWin()) {
-      return whoWon();
+  const endGame = function endGame(cb1 = isWin, cb2 = whoWon, cb3 = isTie) {
+    if (cb1()) {
+      return cb2();
     }
-    if (isTie()) {
+    if (cb3()) {
       return 'tie';
     }
     return false;
@@ -144,11 +131,7 @@ const GamePlay = (() => {
     setTurn,
     changeTurn,
     endGame,
-    isWin,
-    isTie,
-    whoWon,
     move,
-    turn,
     gameStatus,
     playerOne,
     playerTwo,
@@ -156,8 +139,9 @@ const GamePlay = (() => {
     playerTwoScore,
     getPlayers,
     whosTurn,
-    isMovable,
     getPlayerOne,
     getPlayerTwo,
   };
 })();
+
+export { GamePlay as default };

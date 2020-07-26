@@ -32,6 +32,7 @@ Additional description about the project and its features.
 - HTML 
 - CSS
 - JAVASCRIPT
+- JEST
 - BOOTSTRAP
 
 ## Live Demo
@@ -61,9 +62,16 @@ Additional description about the project and its features.
 
 - A modern browser, up to date.
 
+### Setup
+
+- Clone the repository on your local machine
+- Cd into the folder
+- Run `npm install`
+
 ### Run tests
 
-- There is no automated tests for this project.
+- Run ```npm test``` on the root directory to run all the tests.
+- Run ```npm test testfile.test.js ``` on root directory to run test for a single file.
 
 ## Future features
 
